@@ -1,0 +1,24 @@
+spending genwealth
+
+struct Beneficiary {
+	key_hash:     PubKeyHash
+	unlock_delay: Duration
+}
+
+struct Datum {
+	owner: PubKeyHash
+	lock_expiry: Time
+	beneficiaries: []Beneficiary
+}
+
+func main(datum: Datum, ctx: ScriptContext) -> Bool {
+	tx: Tx = ctx.tx;
+	now: Time = tx.time_range.start;
+
+	tx.is_signed_by(datum.owner) || (
+		datum.beneficiaries.any((beneficiary: Beneficiary) -> Bool {
+			now > datum.lock_expiry	+ beneficiary.unlock_delay &&
+			tx.is_signed_by(beneficiary.key_hash)
+		})
+	)
+}

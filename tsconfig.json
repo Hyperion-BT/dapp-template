@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "jsx": "react",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "lib": [
+      "dom",
+      "esnext"
+    ],
+    "strict": true,
+    "sourceMap": true,
+    "target": "esnext",
+    "typeRoots": ["./node_modules/@types", "./src/types"]
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
