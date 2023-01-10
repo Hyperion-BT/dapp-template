@@ -177,7 +177,7 @@ export function App() {
 				<ThemeProvider theme={theme}>
 					<AppBar position="relative">
 						<Toolbar>
-							<h1>Genwealth</h1>
+							<h1>My Dapp</h1>
 							<Box sx={{ flexGrow: 1 }} />
 							{
 								state.isConnected() ?
