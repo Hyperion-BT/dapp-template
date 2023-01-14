@@ -1,6 +1,10 @@
-type CardanoWalletFullApi = {
-}
+import { Cip30Handle } from "@hyperionbt/helios";
 
+import Wallet from "./Wallet"
+
+type CardanoWalletFullApi = Cip30Handle;
+
+// TODO: define this in helios instead
 type CardanoWalletSimpleApi = {
     name: string,
     icon: string,
@@ -10,14 +14,14 @@ type CardanoWalletSimpleApi = {
 
 export {
     CardanoWalletFullApi,
-    CardanoWalletSimpleApi
+    CardanoWalletSimpleApi,
+    Wallet
 }
-
 
 declare global {
   interface Window {
     cardano: {
         [walletName: string]: CardanoWalletSimpleApi
-    };
+    };  
   }
 }

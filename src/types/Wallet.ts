@@ -1,6 +1,7 @@
-interface Wallet {
-    icon: string
-    path: string
+import { Value } from "@hyperionbt/helios"
+
+export default interface Wallet {
+    balance: Promise<Value>
 }
 
-export default Wallet
+export type WalletSetter = (wallet: Wallet) => void
